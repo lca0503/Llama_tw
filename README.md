@@ -5,7 +5,7 @@
 
 While we cannot release our data due to our policy, we do provide our data preprocessing script. You can follow these steps:
 
-1. Execute the [data/split_data.py](data/split_data.py).py script to obtain a subset from the original dataset.
+1. Execute the [data/split_data.py](data/split_data.py) script to obtain a subset from the original dataset.
 Here's an example of splitting a 1B subset from the Traditional Chinese Dataset.
 ```
 python3 split_data.py --dataset_path pretrain_cht_test.jsonl --output_path pretrain_cht_test_1B.jsonl --split_length 1000000000
@@ -80,7 +80,7 @@ python -m torch.distributed.run --nproc_per_node $GPUS_PER_NODE --nnodes $SLURM_
 
 ### Caution
 
-When conducting continual pretraining, the `add_eos_token` parameter in our tokenizer will be set to True. If you are performing inference on a model checkpoint in the middle of the training process, please ensure that you check your `tokenizer_config.json` file and set `add_eos_token` to False during inference.
+When conducting continual pretraining, the `add_eos_token` parameter in our tokenizer will be set to `True`. If you are performing inference on a model checkpoint in the middle of the training process, please ensure that you check your `tokenizer_config.json` file and set `add_eos_token` to `False` during inference.
 
 
 ## Inference
@@ -98,6 +98,11 @@ python3 merge_model.py --model_name meta-llama/Llama-2-7b-chat-hf \
 --peft_model_path ./results/llama-2-7b-chat-zh1B-lora/last \
 --merged_model_path llama-2-7b-chat-zh1B-lora-merged
 ```
+
+
+## Analysis
+
+For detailed instructions, please refer to each README.md file in the [analysis](./analysis) folder.
 
 
 ## References
