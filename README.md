@@ -72,7 +72,7 @@ We use [PEFT](https://github.com/huggingface/peft) to implement continual pretra
 Here is an example of pretraining Llama-2-7b-chat with LORA adapter on the 1B Traditional Chinese Dataset.
 ```
 python -m torch.distributed.run --nproc_per_node $GPUS_PER_NODE --nnodes $SLURM_NNODES \
---node_rank $SLURM_PROCID --master_addr $MASTER_ADDR --master_port $MASTER_PORT llama_pretrain_peft.py \
+--node_rank $SLURM_PROCID --master_addr $MASTER_ADDR --master_port $MASTER_PORT llama_pretrain.py \
 --model_name meta-llama/Llama-2-7b-chat-hf --dataset_path ./data/pretrain_cht_test_1B \
 --use_peft=True --peft_method LORA \
 --run_name llama-2-7b-chat-zh1B-lora --output_dir ./results/llama-2-7b-chat-zh1B-lora
