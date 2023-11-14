@@ -13,7 +13,7 @@ zh_num_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 zh_punct_list = ["。","，","、","；","：","？","！","「","」","『","』","―","～","…","（","）","《","》","〈","〉","．"]
 
-special_token_list = [tkr.eos_token]
+special_token_list = tkr.all_special_tokens
 
 all_token_list = zh_word_list + zh_num_list + zh_punct_list + special_token_list
 
