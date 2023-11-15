@@ -21,15 +21,15 @@ def main(
     bins = 1000
 
     plt.figure(figsize=(20, 10))
-    
+
     if "70b" in model_name and "70b" in chat_model_name:
         num_layers = 80
     elif "13b" in model_name and "13b" in chat_model_name:
         num_layers = 40
     elif "7b" in model_name and "7b" in chat_model_name:
         num_layers = 32
-    
-    os.makedirs(f"{output_dir}/{model_name}", exist_ok=True)
+
+    os.makedirs(output_dir, exist_ok = True)
     with torch.no_grad():
         for l in tqdm(range(num_layers)):
             for k in layer_module_list:
@@ -52,8 +52,8 @@ def main(
             llama2_w = llama2_w.cpu().detach().numpy().flatten()
             llama2_chat_w = llama2_chat_w.cpu().detach().numpy().flatten()
             plt.title(f"{m} histogram")
-            plt.hist(llama2_w, bins=bins, color="blue", alpha=0.5, label=model_name)
-            plt.hist(llama2_chat_w, bins=bins, color="red", alpha=0.5, label=chat_model_name)
+            plt.hist(llama2_w, bins=bins, color="blue", alpha=0.3, label=model_name)
+            plt.hist(llama2_chat_w, bins=bins, color="red", alpha=0.3, label=chat_model_name)
             plt.legend()
             plt.savefig(f"{output_dir}/{m}.png", bbox_inches='tight', pad_inches=0.2)
             plt.clf()
