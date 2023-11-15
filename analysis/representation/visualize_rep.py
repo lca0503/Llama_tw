@@ -14,25 +14,15 @@ def main(
     output_dir: str="./figures",
 ):
     plt.figure(figsize=(10, 10))
-    if "Llama" in model_name:
-        if "7b" in model_name:
-            layer_num = 32 + 1
-        elif "13b" in model_name:
-            layer_num = 40 + 1
-        elif "70b" in model_name:
-            layer_num = 80 + 1
-        else:
-            print("No implementation error!")
-            exit()
-    elif "bloom" in model_name:
-        if "7b" in model_name:
-            layer_num = 30 + 1
-        else:
-            print("No implementation error!")
-            exit()
+    
+    if "7b" in model_name:
+        layer_num = 32 + 1
+    elif "13b" in model_name:
+        layer_num = 40 + 1
+    elif "70b" in model_name:
+        layer_num = 80 + 1
     else:
-        print("No implementation error!")
-        exit()
+        raise NotImplementedError
 
     os.makedirs(f"{output_dir}/{model_name}/", exist_ok=True)
 

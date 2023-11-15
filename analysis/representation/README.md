@@ -18,7 +18,7 @@ Execute the [data/get_subset.py](data/get_subset.py) script to obtain a subset f
 
 Here are examples of extracting representation using [extract_rep.py](extract_rep).
 ```
-python -u extract_rep.py --model_name $MODEL_NAME --data_dir $DATA_DIR  --output_dir $OUTPUT_DIR
+python -u extract_rep.py --model_name $MODEL_NAME --data_dir $DATA_DIR --output_dir $OUTPUT_DIR
 python -u extract_rep.py --model_name meta-llama/Llama-2-7b-chat-hf --data_dir ./data --output_dir ./results
 ```
 Your results will be saved at `${OUTPUT_DIR}/${MODEL_NAME}/`.
@@ -28,6 +28,6 @@ Your results will be saved at `${OUTPUT_DIR}/${MODEL_NAME}/`.
 
 Here is an example of plotting the results.
 ```
-python visualize_rep.py --model_name $MODEL_NAME --input_dir $INPUT_DIR  --output_dir $OUTPUT_DIR
-python visualize_rep.py --model_name meta-llama/Llama-2-7b-chat-hf --input_dir ./results  --output_dir ./figures
+python visualize_rep.py --model_name $MODEL_NAME --input_dir $INPUT_DIR --output_dir $OUTPUT_DIR
+python visualize_rep.py --model_name meta-llama/Llama-2-7b-chat-hf --input_dir ./results --output_dir ./figures
 ```

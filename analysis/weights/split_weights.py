@@ -21,7 +21,7 @@ def main(
         "post_attention_layernorm": "post_attention_layernorm",
     }
 
-    llama2 = LlamaForCausalLM.from_pretrained(f"{model_name}")
+    llama2 = LlamaForCausalLM.from_pretrained(model_name)
     llama2_weight_dir = f"{output_dir}/{model_name}"
     
     # Split all layers modules
