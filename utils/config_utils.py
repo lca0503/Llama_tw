@@ -5,12 +5,10 @@
 
 from dataclasses import asdict
 
-from peft import (AdaptionPromptConfig, IA3Config, LoraConfig,
-                  PrefixTuningConfig)
+from peft import (IA3Config, LoraConfig)
 
 from configs.pretrain.llama_2 import PRETRAIN_CONFIG
-from configs.pretrain.peft import (ADAPTION_PROMPT_CONFIG, IA3_CONFIG,
-                                   LORA_CONFIG, PREFIX_TUNING_CONFIG)
+from configs.pretrain.peft import (IA3_CONFIG, LORA_CONFIG)
 
 
 def update_config(config, **kwargs):
@@ -35,8 +33,8 @@ def update_config(config, **kwargs):
                         
                         
 def generate_peft_config(train_config, kwargs):
-    configs = (LORA_CONFIG, ADAPTION_PROMPT_CONFIG, PREFIX_TUNING_CONFIG, IA3_CONFIG)
-    peft_configs = (LoraConfig, AdaptionPromptConfig, PrefixTuningConfig, IA3Config)
+    configs = (LORA_CONFIG, IA3_CONFIG)
+    peft_configs = (LoraConfig, IA3Config)
     names = tuple(c.__name__.split("_CONFIG")[0] for c in configs)
 
     assert train_config.peft_method in names, f"Peft config not found: {train_config.peft_method}, not in {names}"
